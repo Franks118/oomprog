@@ -1,0 +1,76 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class calculate extends JFrame{
+   private JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9;
+   private JTextField tf1,tf2,tf3,tf4,tf5,tf6,tf7,tf8,tf9;
+   private JButton button;
+   private JPanel panel;
+   public calculate(){
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      setSize(500,500);
+      setLayout(null);
+
+      panel = new JPanel(new GridLayout(5,2));
+      panel.setBounds(50,0,400,200);
+      setLocationRelativeTo(null);
+      label1 = new JLabel("Test Score1");
+      label2 = new JLabel("Test Score2");
+      label3 = new JLabel("Test Score3");
+      label4 = new JLabel("Test Score4");
+      label5 = new JLabel("Test Score5");
+      label6 = new JLabel("Test Score6");
+      label7 = new JLabel("Test Score7");
+      label8 = new JLabel("Test Score8");
+      label9 = new JLabel();
+      tf9 = new JTextField();
+      tf1 = new JTextField();
+      tf2 = new JTextField();
+      tf3 = new JTextField();
+      tf4 = new JTextField();
+      tf5 = new JTextField();
+      tf6 = new JTextField();
+      tf7 = new JTextField();
+      tf8 = new JTextField();     
+      button = new JButton("Compute");
+      button.addActionListener(new ActionListener(){
+         public void actionPerformed(ActionEvent e){  
+            double score1 = Double.parseDouble(tf1.getText());
+            double score2 = Double.parseDouble(tf2.getText());
+            double score3 = Double.parseDouble(tf3.getText());
+            double score4 = Double.parseDouble(tf4.getText());
+            double weight1 = Double.parseDouble(tf5.getText());
+            double weight2 = Double.parseDouble(tf6.getText());
+            double weight3 = Double.parseDouble(tf7.getText());
+            double weight4 = Double.parseDouble(tf8.getText());
+            double total1 = (score1 * score2) + (score3 * score4) + (weight1 * weight2) + (weight3 * weight4);
+            tf9.setText(String.valueOf(total1));
+         }
+      });
+      panel.add(label1);
+      panel.add(tf1);
+      panel.add(label2);
+      panel.add(tf2);
+      panel.add(label3);
+      panel.add(tf3);
+      panel.add(label4);
+      panel.add(tf4);
+      panel.add(label5);
+      panel.add(tf5);
+      panel.add(label6);
+      panel.add(tf6);
+      panel.add(label7);
+      panel.add(tf7);
+      panel.add(label8);
+      panel.add(tf8);
+      panel.add(button);
+      panel.add(tf9);
+      add(panel);
+      setVisible(true);
+      
+      
+   }
+   public static void main(String[] args){
+      new calculate();
+   }
+}
