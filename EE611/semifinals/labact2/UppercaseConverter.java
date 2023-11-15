@@ -2,40 +2,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Color;
-import java.awt.Dimension;
-import javax.swing.JFrame;
-
-public class UppercaseConverter {
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+//main
+public class toUpperCaseConverter {
     public static void main(String[] args) {
-        // Create a JFrame
         JFrame Jf = new JFrame("Uppercase Converter");
-         Color color = new Color(185,215,165);
+        Color color = new Color(185, 215, 165);
+        Jf.setSize(500, 500);
 
-        
-         Jf.setSize(500,500);
-        
-        // Create a JPanel to hold components
         JPanel panel = new JPanel();
-
-        // Create a JTextField for input
         JTextField textField = new JTextField(10);
-
-        // Create a JButton to trigger the conversion
         JButton convertButton = new JButton("Convert to Uppercase");
-
-        // Create a JLabel to display the result
         JLabel resultLabel = new JLabel("results:");
-        resultLabel.setBounds(100,400,50,0);
-       
-
-        // components to the panel
+        resultLabel.setBounds(100, 400, 50, 0);
+//to add or to be visible
         panel.add(textField);
         panel.add(convertButton);
         panel.add(resultLabel);
         panel.setBackground(color);
-
-        // ActionListener to the convertButton
+//button action listener
         convertButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,15 +30,22 @@ public class UppercaseConverter {
                 resultLabel.setText(uppercaseText);
             }
         });
-
-        // JFrame properties
+//when you press enter it shows the result
+        textField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    String inputText = textField.getText();
+                    String uppercaseText = inputText.toUpperCase();
+                    resultLabel.setText(uppercaseText);
+                }
+            }
+        });
+//JFrame values
         Jf.setPreferredSize(new Dimension(550, 300));
-         Jf.setVisible(true);
-
+        Jf.setVisible(true);
         Jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Jf.add(panel);
-              
-        
-         Jf.pack();
-             }
+        Jf.pack();
+    }
 }
