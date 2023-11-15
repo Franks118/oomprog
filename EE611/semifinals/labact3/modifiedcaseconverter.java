@@ -2,11 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-public class modifiedcaseconverter{
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+public class modifiedcaseconverter {
     public static void main(String[] args) {
         // Create a JFrame
         JFrame frame = new JFrame("Case Converter");
-       Color color = new Color(223,215,159);
+        Color color = new Color(223, 215, 159);
 
         // Create a JPanel to hold components
         JPanel panel = new JPanel();
@@ -24,7 +27,7 @@ public class modifiedcaseconverter{
         panel.add(textField);
         panel.add(convertButton);
         panel.add(resultLabel);
-         panel.setBackground(color);
+        panel.setBackground(color);
         frame.pack();
         // Add an ActionListener to the convertButton
         convertButton.addActionListener(new ActionListener() {
@@ -35,15 +38,26 @@ public class modifiedcaseconverter{
                 resultLabel.setText(convertedText);
             }
         });
+//when you press enter it shows the result
+        textField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    String inputText = textField.getText();
+                    String convertedText = convertCase(inputText);
+                    resultLabel.setText(convertedText);
+                }
+            }
+        });
 
         // Set JFrame properties
-       
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel);
-        
-        frame.setSize(300,250);
+
+        frame.setSize(300, 250);
         frame.setVisible(true);
-        
+
     }
 
     // Function to convert the case of a string
