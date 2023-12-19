@@ -267,30 +267,30 @@ public class Employee {
 		Label_2_8.setBounds(106, 348, 89, 33);
 		thePanel_1.add(Label_2_8);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("New Times Roman", Font.BOLD, 15));
-		textField.setBounds(198, 79, 193, 24);
+		//textField = new JTextField();
+		//textField.setFont(new Font("New Times Roman", Font.BOLD, 15));
+		//textField.setBounds(198, 79, 193, 24);
 		//thePanel_1.add(textField);
 		//textField.setColumns(10);
-		
+		//reference number
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("New Times Roman", Font.BOLD, 15));
 		textField_1.setColumns(10);
 		textField_1.setBounds(198, 109, 193, 24);
 		thePanel_1.add(textField_1);
-		
+		//Employees name
 		textField_2 = new JTextField();
 		textField_2.setFont(new Font("New Times Roman", Font.BOLD, 15));
 		textField_2.setColumns(10);
 		textField_2.setBounds(198, 142, 193, 24);
 		thePanel_1.add(textField_2);
-		
+		//address
 		textField_3 = new JTextField();
 		textField_3.setFont(new Font("New Times Roman", Font.BOLD, 15));
 		textField_3.setColumns(10);
 		textField_3.setBounds(198, 179, 193, 24);
 		thePanel_1.add(textField_3);
-		
+		//zip code
 		textField_4 = new JTextField();
 		textField_4.setFont(new Font("New Times Roman", Font.BOLD, 15));
 		textField_4.setColumns(10);
